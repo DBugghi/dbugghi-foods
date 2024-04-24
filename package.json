@@ -1,0 +1,29 @@
+{
+  "name": "dbugghi-foods",
+  "version": "1.0.0",
+  "description": "Food Ordering App",
+  "main": "App.js",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBugghi/dbugghi-foods.git"
+  },
+  "author": "DBugghi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DBugghi/dbugghi-foods/issues"
+  },
+  "homepage": "https://github.com/DBugghi/dbugghi-foods#readme",
+  "devDependencies": {
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "parcel": "^2.12.0"
+  }
+}
