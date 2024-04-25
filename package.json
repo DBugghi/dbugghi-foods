@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx parcel index.html",
     "build": "npx parcel build index.html",
-    "predeploy": "rm -rf dist && parcel build index.html --no-source-maps --public-url ./",
+    "predeploy": "rm -rf dist && parcel build index.html --no-source-maps --public-url /dbugghi-foods/",
     "deploy": "gh-pages -d dist",
     "test": "jest"
   },
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/DBugghi/dbugghi-foods/issues"
   },
-  "homepage": "https://github.com/DBugghi/dbugghi-foods#readme",
+  "homepage": "https://dbugghi.github.io/dbugghi-foods",
   "devDependencies": {
     "gh-pages": "^6.1.1",
     "process": "^0.11.10",
