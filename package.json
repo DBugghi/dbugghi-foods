@@ -2,12 +2,11 @@
   "name": "dbugghi-foods",
   "version": "1.0.0",
   "description": "Food Ordering App",
-  
   "scripts": {
     "start": "npx parcel index.html",
     "build": "npx parcel build index.html",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "test": "jest"
   },
   "repository": {
@@ -27,8 +26,8 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "parcel": "^2.12.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "parcel": "^2.12.0"
   }
 }
