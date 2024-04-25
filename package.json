@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/DBugghi/dbugghi-foods#readme",
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
