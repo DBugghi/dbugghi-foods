@@ -1,5 +1,6 @@
 import RestrauntCard from "./RestrauntCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
     //Local state variable - Super powerful variable
@@ -20,6 +21,11 @@ const Body = () => {
         setApiWaleRestaurants(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
         setListOfRestaurants(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
     }
+
+    if(listOfRestaurants.length === 0){
+        return <Shimmer/>;
+    }
+
     return (
         <div className="body">
             <div className="filter">
