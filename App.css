@@ -54,6 +54,11 @@
     flex-wrap: wrap;
 }
 
+.shimmerBtn {
+    height: 34px;
+    margin: 20px;
+}
+
 .shimmer-card {
     margin: 20px;
     width: 200px;

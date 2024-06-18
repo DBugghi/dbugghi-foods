@@ -1,30 +1,10 @@
 import RestrauntCard from "./RestrauntCard";
-import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import { useState } from "react";
 
-const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [apiWaleRestaurants, setApiWaleRestaurants] = useState([]);
+const Body = ({cityName, apiWaleRestaurants}) => {
+  const [listOfRestaurants, setListOfRestaurants] = useState(apiWaleRestaurants);
   const [above45, setAbove45] = useState(false);
   const [searchText, setSearchText] = useState("");
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.2418194&lng=72.49297159999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const json = await data.json();
-    setApiWaleRestaurants(
-      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
-    );
-    setListOfRestaurants(
-      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
-    );
-  };
 
   const topRated = () => {
     if (!above45) {
@@ -39,10 +19,11 @@ const Body = () => {
     }
   };
 
-  return apiWaleRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div className="body">
+      <div>
+        <h2>Checking in {cityName} Restaurants</h2>
+      </div>
       <div className="filter">
         <div className="search">
           <input
