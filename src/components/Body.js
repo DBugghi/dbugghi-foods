@@ -22,7 +22,7 @@ const Body = ({cityName, apiWaleRestaurants}) => {
   return (
     <div className="body">
       <div>
-        <h2>Checking in {cityName} Restaurants</h2>
+        <h2 className="cityHeading">Checking in <div className="cityName">{cityName} Restaurants</div></h2>
       </div>
       <div className="filter">
         <div className="search">
@@ -53,8 +53,8 @@ const Body = ({cityName, apiWaleRestaurants}) => {
             }}
           />
         </div>
-        <button className="filter-btn" onClick={topRated}>
-          {!above45 ? "Top Rated Restuarants" : "Show All"}
+        <button className="filter-btn-1" onClick={topRated}>
+          {!above45 ? "Show Top Rated" : "Show All"}
         </button>
       </div>
       <div className="res-container">

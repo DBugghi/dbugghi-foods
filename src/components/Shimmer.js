@@ -48,6 +48,20 @@ const Shimmer = () => {
       >
         {!btnTxt.includes("Indore") ? "Check In Indore" : btnTxt}
       </button>
+
+      <button className="shimmerBtn"
+        onClick={() => {
+          setCityName("Kota");
+          setApiOfCity(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.2138156&lng=75.8647527&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+          );
+          setIndexApi(1);
+          setBtnTxt("Loading Kota's Restraunts")
+        }}
+      >
+        {!btnTxt.includes("Kota") ? "Check In Kota" : btnTxt}
+      </button>
+
       <div className="shimmer-container">
         <div className="shimmer-card"></div>
         <div className="shimmer-card"></div>
