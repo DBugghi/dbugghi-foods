@@ -1,14 +1,16 @@
 import RestrauntCard from "./RestrauntCard";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Body = ({cityName, apiWaleRestaurants}) => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(apiWaleRestaurants);
+const Body = ({ cityName, apiWaleRestaurants }) => {
+  const [listOfRestaurants, setListOfRestaurants] =
+    useState(apiWaleRestaurants);
   const [above45, setAbove45] = useState(false);
   const [searchText, setSearchText] = useState("");
 
   const topRated = () => {
     if (!above45) {
-      const filteredList = apiWaleRestaurants.filter(
+      const filteredList = apiWaleRestaurants?.filter(
         (res) => res.info.avgRating > 4.5
       );
       setListOfRestaurants(filteredList);
@@ -22,7 +24,9 @@ const Body = ({cityName, apiWaleRestaurants}) => {
   return (
     <div className="body">
       <div>
-        <h2 className="cityHeading">Checking in <div className="cityName">{cityName} Restaurants</div></h2>
+        <h2 className="cityHeading">
+          Checking in <div className="cityName">{cityName} Restaurants</div>
+        </h2>
       </div>
       <div className="filter">
         <div className="search">
@@ -38,7 +42,7 @@ const Body = ({cityName, apiWaleRestaurants}) => {
                 setAbove45(false);
               } else {
                 setAbove45(true);
-                const filteredRestaurants = apiWaleRestaurants.filter(
+                const filteredRestaurants = apiWaleRestaurants?.filter(
                   (res) =>
                     res.info.name
                       .toLowerCase()
@@ -58,8 +62,13 @@ const Body = ({cityName, apiWaleRestaurants}) => {
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
-          <RestrauntCard key={restaurant.info.id} resData={restaurant} />
+        {listOfRestaurants?.map((restaurant) => (
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestrauntCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Shimmer from "./components/Shimmer";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import City from "./components/City";
 import About from "./components/About";
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
     return (
         <div className="app">
             <Header/>
-            <Shimmer/>
-            {/* Footer */}
+            <Outlet/>
         </div>
     )
 }
@@ -18,14 +20,26 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
     {
         path:"/",
-        element: <AppLayout/>
-    },
-    {
-        path:"/about",
-        element: <About/>
-    },
-    {
-        
+        element: <AppLayout/>,
+        children: [
+            {
+                path: "/",
+                element: <City/>
+            },
+            {
+                path:"/about",
+                element: <About/>
+            },
+            {
+                path:"/contact",
+                element: <Contact/>
+            },
+            {
+                path:"/restaurants/:resId",
+                element: <RestaurantMenu/>
+            }
+        ],
+        errorElement: <Error/>
     }
 ]);
 

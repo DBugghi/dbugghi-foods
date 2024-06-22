@@ -8,8 +8,8 @@ const RestrauntCard = (props) => {
     const {deliveryTime} = resData?.info.sla;
 
     return (
-        <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
-            <img className="res-logo" src={CDN_URL
+        <div className="res-card" style={{backgroundColor: "#f0f0f0", border: "2px double burlywood"}}>
+            <img className="res-logo" style={{border: "2px solid lightcoral"}} src={CDN_URL
             + cloudinaryImageId}/>
             <h3>{name}</h3>
             <h4>{cuisines.join(", ")}</h4>

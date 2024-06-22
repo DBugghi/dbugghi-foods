@@ -38,6 +38,11 @@
     margin: 10px;
 }
 
+.res-container > * {
+    text-decoration: none;
+    color: inherit;
+}
+
 .res-logo{
     width: 100%;
 }
@@ -52,7 +57,7 @@
     flex-wrap: wrap;
 }
 
-.shimmerBtn {
+.cityBtn {
     height: 34px;
     margin: 20px;
 }
