@@ -13,22 +13,28 @@ const City = () => {
 
   useEffect(() => {
     fetchData();
-  }, [cityCode]);
+  }, [indexApi]);
 
   const fetchData = async () => {
-    const data = await fetch(CITY_API + cityCode);
-
-    const json = await data.json();
-    setApiWaleRestaurants(
-      json?.data?.cards[indexApi]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    if(cityCode==="")return;
+    
+    try {
+      const data = await fetch(CITY_API + cityCode);
+  
+      const json = await data.json();
+      setApiWaleRestaurants(
+        json?.data?.cards[indexApi]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  return !apiWaleRestaurants ? (
+  return apiWaleRestaurants.length===0 ? (
     <>
       <button className="cityBtn"
-        onClick={() => {
+        onClick={async () => {
           setCityName("Kalol");
           setCityCode(KALOL);
           setIndexApi(2);
@@ -61,8 +67,10 @@ const City = () => {
       <Shimmer/>
       
     </>
-  ) : (
+  ) : (<>
     <Body cityName={cityName} apiWaleRestaurants={apiWaleRestaurants} />
+    jkk
+  </>
   );
 };
 
