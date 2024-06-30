@@ -3,6 +3,7 @@ import Body from "./Body";
 import Shimmer from "./Shimmer";
 import { CITY_API } from "../utils/constants";
 import { KOTA, KALOL, INDORE } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const City = () => {
   const [cityCode, setCityCode] = useState("");
@@ -30,6 +31,13 @@ const City = () => {
       console.error(err);
     }
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false)
+    return (
+      <h1>Looks like you are offline! 😕</h1>
+    );
 
   return apiWaleRestaurants.length===0 ? (
     <>
